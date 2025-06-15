@@ -1,1 +1,14 @@
 @import 'tailwindcss';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@theme {
+  --color-black-default: #121212;
+  --font-inter: 'Inter', sans-serif;
+  --max-width-app: 1400px;
+}
+
+:root {
+  font-family: var(--font-inter);
+  background-color: var(--color-black-default);
+}
