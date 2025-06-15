@@ -9,6 +9,8 @@ export default function PS3WaveBackground() {
   useEffect(() => {
     if (!mountRef.current) return;
 
+    let last = performance.now();
+
     const effectMount = mountRef.current;
 
     const scene = new THREE.Scene();
@@ -102,8 +104,11 @@ export default function PS3WaveBackground() {
     window.addEventListener('resize', resize);
     resize();
 
-    const animate = () => {
-      ribbon.material.uniforms.time.value += 0.0025;
+    const animate = (now = 0) => {
+      const delta = (now - last) / 1000;
+      last = now;
+
+      ribbon.material.uniforms.time.value += delta * 0.5;
       renderer.render(scene, camera);
       requestAnimationFrame(animate);
     };
