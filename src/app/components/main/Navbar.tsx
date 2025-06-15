@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { RxHamburgerMenu } from 'react-icons/rx';
 import { useSearchParams } from 'next/navigation';
+import { RxHamburgerMenu } from 'react-icons/rx';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const NavbarRoutes: Array<{
