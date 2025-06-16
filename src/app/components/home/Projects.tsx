@@ -8,28 +8,28 @@ import { GithubProject } from '@/common/types/types';
 
 function ProjectCard({ project }: { project: GithubProject }) {
   return (
-    <li className="group m-0 flex min-h-[300px] w-full flex-col items-center justify-center overflow-hidden">
-      <a
-        href={project.html_url}
-        target="_blank"
-        className="flex h-full w-full flex-col items-start justify-start gap-5 border border-zinc-800 bg-black/20 p-5 transition-all duration-200 hover:bg-black/10"
-      >
-        <div className="relative flex h-[75%] w-full items-center justify-center overflow-hidden">
-          <NextImageWithFallback
-            alt={project.name}
-            className="object-cover object-center grayscale-50 transition-all duration-500 group-hover:scale-125"
-            src={`https://raw.githubusercontent.com/${project.owner.login}/${project.name}/refs/heads/${project.default_branch}/portfolio/banner.jpg`}
-          />
-          <div className="bg-black-default/35 group-hover:bg-black-default/25 absolute bottom-0 left-0 h-full w-full transition-all duration-500" />
-        </div>
-        <section className="flex flex-col items-start justify-start gap-1">
-          <h3 className="text-sm font-light text-zinc-200">{project.name}</h3>
-          <p className="text-xs font-light text-zinc-300">
-            {project.description}
-          </p>
-        </section>
-      </a>
-    </li>
+    <a
+      target="_blank"
+      href={project.html_url}
+      className="relative flex flex-col items-start justify-start gap-5 border border-zinc-800 p-5 transition-all duration-200 hover:bg-zinc-800"
+    >
+      <div className="relative flex aspect-[16/6] w-full items-center justify-center overflow-hidden md:aspect-[16/9] lg:aspect-[16/9]">
+        <NextImageWithFallback
+          alt={project.name}
+          className="object-cover object-center grayscale-50 transition-all duration-500 group-hover:scale-125"
+          src={`https://raw.githubusercontent.com/${project.owner.login}/${project.name}/refs/heads/${project.default_branch}/portfolio/banner.jpg`}
+        />
+        <div className="bg-black-default/35 group-hover:bg-black-default/25 absolute bottom-0 left-0 h-full w-full transition-all duration-500" />
+      </div>
+      <section className="flex flex-col items-start justify-start gap-1">
+        <h3 className="text-sm font-light text-zinc-300">{project.name}</h3>
+        <p className="text-xs font-light text-zinc-400">
+          {project.description.length > 100
+            ? `${project.description.slice(0, 100)}...`
+            : project.description}
+        </p>
+      </section>
+    </a>
   );
 }
 
@@ -62,9 +62,12 @@ function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="flex w-full items-center justify-center">
-      <section className="max-w-app item-center flex w-full flex-col justify-start gap-10 p-3">
-        <section className="flex flex-col items-center justify-center gap-2">
+    <section
+      id="projects"
+      className="grid h-full w-full grid-cols-1 place-content-start place-items-center"
+    >
+      <section className="max-w-app flex h-full w-full flex-col items-center justify-start gap-10 p-3">
+        <section className="flex flex-col items-center justify-center gap-2 text-center">
           <h2 className="text-2xl font-light text-zinc-200 lg:text-3xl">
             Projeler
           </h2>
@@ -72,7 +75,7 @@ function Projects() {
             Fonksiyonel, ölçeklenebilir ve sürdürülebilir yazılım uygulamaları.
           </p>
         </section>
-        <ul className="grid w-full grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <section className="grid h-full w-full max-w-md auto-rows-fr grid-cols-1 gap-0 overflow-hidden border border-zinc-800 sm:grid-cols-2 md:max-w-2xl lg:max-w-6xl lg:grid-cols-4">
           {projects.length > 0 ? (
             projects.map((project) => (
               <ProjectCard
@@ -85,7 +88,7 @@ function Projects() {
               Listelenebilir proje bulunamadı.
             </p>
           )}
-        </ul>
+        </section>
         <section className="flex w-full items-center justify-center">
           {projects.length > 0 && (
             <a
