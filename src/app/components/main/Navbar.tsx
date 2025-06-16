@@ -66,7 +66,7 @@ function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenu(!mobileMenu)}
-            className="block cursor-pointer text-sm text-zinc-300 md:hidden lg:hidden"
+            className="block cursor-pointer text-xl text-zinc-300 md:hidden lg:hidden"
           >
             <RxHamburgerMenu />
           </button>
@@ -92,7 +92,7 @@ function Navbar() {
             }}
             className="mobile-menu bg-black-default/70 fixed z-[98] flex h-screen w-full items-start justify-center p-3 pt-5 backdrop-blur-sm md:hidden lg:hidden"
           >
-            <ul className="m-0 flex w-full flex-col items-start justify-center gap-4 overflow-hidden p-0">
+            <ul className="m-0 flex w-full flex-col items-start justify-center gap-2 overflow-hidden p-0">
               {NavbarRoutes.map((route, i) => (
                 <motion.li
                   initial={{
@@ -112,7 +112,7 @@ function Navbar() {
                   className="m-0 flex w-full p-0"
                 >
                   <Link
-                    className="w-full border-b border-b-zinc-300/10 pb-4 text-left text-2xl font-extralight text-zinc-300"
+                    className="w-full border-b border-b-zinc-300/10 pb-2 text-left text-lg font-extralight text-zinc-300"
                     href={route.href}
                     target={route.target}
                   >
