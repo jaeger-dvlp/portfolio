@@ -24,9 +24,7 @@ function ProjectCard({ project }: { project: GithubProject }) {
       <section className="flex flex-col items-start justify-start gap-1">
         <h3 className="text-sm font-light text-zinc-300">{project.name}</h3>
         <p className="text-xs font-light text-zinc-400">
-          {project.description.length > 100
-            ? `${project.description.slice(0, 100)}...`
-            : project.description}
+          {project.description}
         </p>
       </section>
     </a>
