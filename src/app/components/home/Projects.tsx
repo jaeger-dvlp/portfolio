@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import ApiHelper from '@/common/helpers/api.helper';
 import NextImageWithFallback from '@/app/components/main/NextImageWithFallback';
 
 import { GithubProject } from '@/common/types/types';
@@ -31,38 +30,34 @@ function ProjectCard({ project }: { project: GithubProject }) {
   );
 }
 
-function Projects() {
-  const userName = 'jaeger-dvlp';
-  const [projects, setProjects] = React.useState<Array<GithubProject>>([]);
+function Projects({
+  userName,
+  projects: projectsData,
+}: {
+  userName: string;
+  projects?: Array<GithubProject>;
+}) {
+  const [projects, setProjects] = React.useState<
+    Array<GithubProject> | 'loading'
+  >('loading');
 
   React.useEffect(() => {
-    const apiHelper = new ApiHelper(userName);
+    if (!projectsData) return setProjects([]);
 
-    const getProjects = async () => {
-      const { data }: { data: Array<GithubProject> | null } =
-        await apiHelper.getRepos();
+    const filteredData = projectsData
+      .filter(
+        (repo: GithubProject) =>
+          repo.topics.includes('show-in-portfolio') && !repo.private,
+      )
+      .slice(0, 8);
 
-      if (!data) return setProjects([]);
-
-      const filteredData =
-        data.length > 0
-          ? data
-              .filter(
-                (repo: GithubProject) =>
-                  repo.topics.includes('show-in-portfolio') && !repo.private,
-              )
-              .slice(0, 8)
-          : [];
-      setProjects(filteredData || []);
-    };
-
-    getProjects();
-  }, []);
+    setProjects(filteredData || []);
+  }, [projectsData]);
 
   return (
     <section
       id="projects"
-      className="grid h-full w-full grid-cols-1 place-content-start place-items-center"
+      className="grid h-full w-full grid-cols-1 place-content-start place-items-center py-14"
     >
       <section className="max-w-app flex h-full w-full flex-col items-center justify-start gap-10 p-3">
         <section className="flex flex-col items-center justify-center gap-2 text-center">
@@ -73,22 +68,30 @@ function Projects() {
             Fonksiyonel, ölçeklenebilir ve sürdürülebilir yazılım uygulamaları.
           </p>
         </section>
-        <section className="grid h-full w-full max-w-md auto-rows-fr grid-cols-1 gap-0 overflow-hidden border border-zinc-800 sm:grid-cols-2 md:max-w-2xl lg:max-w-6xl lg:grid-cols-4">
-          {projects.length > 0 ? (
-            projects.map((project) => (
-              <ProjectCard
-                key={`project-card-${project.id}`}
-                project={project}
-              />
-            ))
-          ) : (
-            <p className="col-span-full text-center text-sm font-light text-zinc-600">
-              Listelenebilir proje bulunamadı.
-            </p>
-          )}
-        </section>
+        {projects.length > 0 && projects !== 'loading' && (
+          <section className="grid h-full w-full max-w-md auto-rows-fr grid-cols-1 gap-0 overflow-hidden border border-zinc-800 sm:grid-cols-2 md:max-w-2xl lg:max-w-6xl lg:grid-cols-4">
+            {Array.isArray(projects) &&
+              projects.map((project) => (
+                <ProjectCard
+                  key={`project-card-${project.id}`}
+                  project={project}
+                />
+              ))}
+          </section>
+        )}
+        {projects.length === 0 && (
+          <p className="col-span-full text-center text-sm font-light text-zinc-600">
+            Listelenebilir proje bulunamadı.
+          </p>
+        )}
+        {projects === 'loading' && (
+          <p className="col-span-full text-center text-sm font-light text-zinc-600">
+            Listelenebilir projeler yükleniyor...
+          </p>
+        )}
+
         <section className="flex w-full items-center justify-center">
-          {projects.length > 0 && (
+          {projects.length > 0 && projects !== 'loading' && (
             <a
               target="_blank"
               href={`https://github.com/${userName}?tab=repositories`}
