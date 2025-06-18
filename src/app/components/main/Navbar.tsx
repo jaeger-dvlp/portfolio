@@ -45,7 +45,14 @@ function Navbar() {
 
   return (
     <>
-      <header className="bg-black-default/75 sticky top-0 z-[98] flex w-full items-center justify-center border-b border-b-zinc-800 backdrop-blur-sm">
+      <motion.header
+        key={'navbar'}
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.5, duration: 1, ease: 'easeInOut' }}
+        exit={{ opacity: 0, y: -50 }}
+        className="bg-black-default/75 sticky top-0 z-[98] flex w-full items-center justify-center border-b border-b-zinc-800 backdrop-blur-sm"
+      >
         <div className="max-w-app flex w-full items-center justify-between p-3">
           <Link href="/" className="logo font-extralight text-white">
             ÖK
@@ -71,7 +78,7 @@ function Navbar() {
             <RxHamburgerMenu />
           </button>
         </div>
-      </header>
+      </motion.header>
       <AnimatePresence>
         {mobileMenu && (
           <motion.div

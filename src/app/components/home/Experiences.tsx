@@ -14,7 +14,9 @@ function ExperienceCard({
   return (
     <React.Fragment>
       <li className="relative inset-0 m-0 p-0">
-        <section className="z-[1] grid grid-cols-1 place-content-start place-items-start border-2 border-zinc-800 p-5 transition-all duration-150 hover:bg-zinc-800">
+        <section
+          className={`${!isLast && 'border-b'} bg-black-default relative z-[1] grid grid-cols-1 place-content-start place-items-start border-zinc-800 p-5 py-10 transition-all duration-150 hover:bg-zinc-900`}
+        >
           {experience.company && (
             <p className="text-sm font-light text-zinc-400">
               {experience.company}
@@ -38,9 +40,7 @@ function ExperienceCard({
             </p>
           )}
         </section>
-        {!isLast && (
-          <span className="bg-black-default absolute bottom-0 left-0 z-[2] h-3 w-3 -translate-x-1/2 translate-y-1/2 rounded-none border-2 border-zinc-800" />
-        )}
+        <span className="bg-black-default absolute top-0 left-0 z-[2] h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-none border border-zinc-800" />
       </li>
     </React.Fragment>
   );
@@ -52,9 +52,9 @@ function Experiences() {
       id="experience"
       className="grid w-full grid-cols-1 place-content-start place-items-center py-14"
     >
-      <section className="max-w-app flex h-full w-full flex-col items-center justify-start gap-10 p-3">
-        <section className="flex flex-col items-center justify-center gap-2 text-center">
-          <h2 className="text-2xl font-light text-zinc-200 lg:text-3xl">
+      <section className="max-w-app flex h-full w-full flex-col items-start justify-start gap-10 p-3">
+        <section className="flex flex-col items-start justify-center gap-2 text-start">
+          <h2 className="text-2xl font-extralight text-zinc-200 lg:text-3xl">
             Deneyim
           </h2>
           <p className="text-sm text-zinc-400">
@@ -62,7 +62,7 @@ function Experiences() {
             tecrübeler.
           </p>
         </section>
-        <ul className="grid w-full max-w-3xl grid-cols-1 place-content-start place-items-stretch border border-zinc-800">
+        <ul className="grid w-full grid-cols-1 place-content-start place-items-stretch border border-zinc-800">
           {userExperiences
             .sort((a: Experience, b: Experience) => b.id - a.id)
             .map((experience: Experience, index: number) => (
