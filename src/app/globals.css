@@ -5,7 +5,7 @@
 @theme {
   --color-black-default: #121212;
   --font-inter: 'Inter', sans-serif;
-  --max-width-app: 1400px;
+  --max-width-app: 900px;
 }
 
 :root {
