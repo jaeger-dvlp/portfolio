@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google';
 import Navbar from './components/main/Navbar';
 
 import './globals.css';
+import AOS from './components/main/AOS';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
@@ -17,13 +18,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.className} antialiased`}>
-      <body>
-        <Suspense>
-          <Navbar />
-        </Suspense>
-        {children}
-      </body>
-    </html>
+    <>
+      <AOS />
+      <html lang="en" className={`${inter.className} antialiased`}>
+        <body>
+          <Suspense>
+            <Navbar />
+          </Suspense>
+          {children}
+        </body>
+      </html>
+    </>
   );
 }

@@ -59,7 +59,10 @@ function Projects({
       id="projects"
       className="grid h-full w-full grid-cols-1 place-content-start place-items-center py-14"
     >
-      <section className="max-w-app flex h-full w-full flex-col items-start justify-start gap-10 p-3">
+      <section
+        data-aos="fade-in"
+        className="max-w-app flex h-full w-full flex-col items-start justify-start gap-10 p-3"
+      >
         <section className="flex flex-col items-start justify-center gap-2 text-start">
           <h2 className="text-2xl font-extralight text-zinc-200 lg:text-3xl">
             Projeler

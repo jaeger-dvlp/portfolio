@@ -11,10 +11,12 @@ export default async function Home(): Promise<JSX.Element> {
   const { data: projects } = await apiHelper.getRepos();
 
   return (
-    <main className="grid h-full grid-cols-1 place-content-start place-items-center">
-      <EntryBanner />
-      <Experiences />
-      <Projects projects={projects} userName={userName} />
-    </main>
+    <>
+      <main className="grid h-full grid-cols-1 place-content-start place-items-center">
+        <EntryBanner />
+        <Experiences />
+        <Projects projects={projects} userName={userName} />
+      </main>
+    </>
   );
 }
