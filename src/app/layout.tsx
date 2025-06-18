@@ -9,7 +9,8 @@ import AOS from './components/main/AOS';
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
 export const metadata: Metadata = {
-  title: 'Hello World',
+  title: 'Ömer Kayalar | Software Developer',
+  description: 'Gerçek dünya problemlerine yazılımla çözüm üretiyorum.',
 };
 
 export default function RootLayout({
