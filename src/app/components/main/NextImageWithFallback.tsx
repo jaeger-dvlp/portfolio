@@ -14,8 +14,6 @@ function NextImageWithFallback({
     setError(false);
   }, [src]);
 
-  console.log(error);
-
   return (
     <Image
       fill

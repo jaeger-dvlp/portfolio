@@ -34,7 +34,7 @@ function EntryBanner() {
             className="max-w-app z-[1] flex h-full w-full flex-col items-start justify-center gap-2 p-3 font-light text-shadow-lg/50 text-shadow-black"
           >
             <h1 className="text-left text-3xl text-zinc-300 lg:text-5xl">
-              Ömer Kayalar.
+              Ömer Kayalar
             </h1>
             <p className="text-md mb-14 text-left text-zinc-400 lg:text-lg">
               Gerçek dünya problemlerine yazılımla çözüm üretiyorum.
