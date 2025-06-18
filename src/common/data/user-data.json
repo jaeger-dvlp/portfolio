@@ -1,0 +1,41 @@
+{
+  "experience": [
+    {
+      "id": 0,
+      "startDate": "2020-09-01",
+      "endDate": "2021-06-01",
+      "company": "Zaxe 3D Printing Technologies",
+      "position": "Intern",
+      "description": "● Assembled and wired 3D printers in the production workshop; supported mechanical integration of hardware units.\n● Independently developed a custom tool to automate part of the 3d printer production process → Reduced manual workload and improved production efficiency.\n● Recognized for initiative and technical contribution → transitioned to full-time software developer after internship."
+    },
+    {
+      "id": 1,
+      "startDate": "2021-07-01",
+      "endDate": "2023-01-01",
+      "company": "Zaxe 3D Printing Technologies",
+      "position": "Software Developer",
+      "description": "● Led development of 3+ full-stack platforms for hardware control, e-commerce and admin tools.\n● Designed MVC-based backend services; took ownership of DevOps responsibilities including CI/CD pipelines and cloud deployment → Reduced release friction and increased delivery speed.\n● Refactored legacy code into modular structures → enhanced maintainability and scalability."
+    },
+    {
+      "id": 2,
+      "startDate": "2023-01-01",
+      "endDate": "2023-09-01",
+      "company": "Beyond",
+      "position": "Front End Developer",
+      "description": "● Delivered 3+ client-facing dashboards with reusable UI components and clean architecture.\n● Wrote reusable front-end components following clean architecture principles → Reduced future maintenance overhead by 50%."
+    },
+    {
+      "id": 3,
+      "startDate": "2023-09-01",
+      "company": "Kayalar Alüminyum",
+      "position": "Technical Manager",
+      "description": "● Analyzed and digitized production workflows → reduced manual errors, improved visibility.\n● Built inventory and melting efficiency tracking systems → achieved 60% reporting accuracy gain.\n● Deployed automation in non-digital environments → improved productivity with minimal cost"
+    },
+    {
+      "id": 4,
+      "startDate": "2023-09-01",
+      "company": "Individual",
+      "position": "Freelance Software Developer"
+    }
+  ]
+}
