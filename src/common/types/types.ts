@@ -12,10 +12,19 @@ interface GithubProject {
   owner: { login: string };
 }
 
+interface Experience {
+  id: number;
+  startDate: string;
+  endDate?: string;
+  company?: string;
+  position: string;
+  description?: string;
+}
+
 interface TypeNextImageWithFallback extends ImageProps {
   fallback?: string;
   alt: string;
   src: string;
 }
 
-export type { GithubProject, TypeNextImageWithFallback };
+export type { GithubProject, Experience, TypeNextImageWithFallback };
