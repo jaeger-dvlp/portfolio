@@ -25,7 +25,7 @@ function ExperienceCard({
           <h3 className="text-xl font-light text-zinc-300">
             {experience.position}
           </h3>
-          <p className="text-sm font-light text-zinc-400">
+          <p className="mb-4 text-sm font-light text-zinc-400">
             <span>{dayjs(experience.startDate).format('YYYY/MM')}</span>
             <span className="mx-2">→</span>
             {experience.endDate ? (
@@ -34,19 +34,17 @@ function ExperienceCard({
               <span>∞</span>
             )}
           </p>
-          {experience.descriptions && experience.descriptions.length > 0 && (
-            <ul className="m-0 mt-4 flex list-none flex-col items-start justify-start p-0">
-              {experience.descriptions.map((description, index) => (
-                <li
-                  key={`${experience.id}-description-${index}`}
-                  className="relative pl-3 text-xs font-light text-zinc-400/90"
-                >
-                  <span className="absolute top-2 left-0 h-px w-1.5 bg-zinc-500/90" />
-                  {description}
-                </li>
-              ))}
-            </ul>
-          )}
+          {experience.descriptions &&
+            experience.descriptions.length > 0 &&
+            experience.descriptions.map((description, index) => (
+              <p
+                key={`${experience.id}-description-${index}`}
+                className="relative pl-3 text-xs font-light text-zinc-400/90"
+              >
+                <span className="absolute top-2 left-0 h-px w-1.5 bg-zinc-500/90" />
+                {description}
+              </p>
+            ))}
         </section>
         <span className="bg-black-default absolute top-0 left-0 z-[2] h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-none border border-zinc-800" />
       </li>
