@@ -18,7 +18,7 @@ interface Experience {
   endDate?: string;
   company?: string;
   position: string;
-  description?: string;
+  descriptions?: string[];
 }
 
 interface TypeNextImageWithFallback extends ImageProps {

@@ -12,12 +12,16 @@ const NavbarRoutes: Array<{
   target?: React.HTMLAttributeAnchorTarget | undefined;
 }> = [
   {
-    text: 'Projeler',
-    href: '/#projects',
+    text: 'Hakkımda',
+    href: '/#about',
   },
   {
     text: 'Deneyim',
     href: '/#experience',
+  },
+  {
+    text: 'Projeler',
+    href: '/#projects',
   },
   {
     text: 'İletişim',

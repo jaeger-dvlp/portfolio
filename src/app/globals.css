@@ -11,4 +11,5 @@
 :root {
   font-family: var(--font-inter);
   background-color: var(--color-black-default);
+  scroll-behavior: smooth;
 }

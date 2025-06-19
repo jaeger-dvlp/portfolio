@@ -34,10 +34,18 @@ function ExperienceCard({
               <span>∞</span>
             )}
           </p>
-          {experience.description && (
-            <p className="!mt-4 text-xs font-light whitespace-pre-wrap text-zinc-400/90">
-              {experience.description}
-            </p>
+          {experience.descriptions && experience.descriptions.length > 0 && (
+            <ul className="m-0 mt-4 flex list-none flex-col items-start justify-start p-0">
+              {experience.descriptions.map((description, index) => (
+                <li
+                  key={`${experience.id}-description-${index}`}
+                  className="relative pl-3 text-xs font-light text-zinc-400/90"
+                >
+                  <span className="absolute top-2 left-0 h-px w-1.5 bg-zinc-500/90" />
+                  {description}
+                </li>
+              ))}
+            </ul>
           )}
         </section>
         <span className="bg-black-default absolute top-0 left-0 z-[2] h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-none border border-zinc-800" />
@@ -54,6 +62,7 @@ function Experiences() {
     >
       <section
         data-aos="fade-in"
+        data-aos-delay="200"
         className="max-w-app flex h-full w-full flex-col items-start justify-start gap-10 p-3"
       >
         <section className="flex flex-col items-start justify-center gap-2 text-start">

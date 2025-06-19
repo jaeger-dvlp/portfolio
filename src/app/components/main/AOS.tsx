@@ -8,7 +8,7 @@ function AOS() {
   React.useEffect(() => {
     import('aos').then((AOS) => {
       AOS.init({
-        duration: 1000,
+        duration: 1500,
         once: true,
         mirror: false,
       });
