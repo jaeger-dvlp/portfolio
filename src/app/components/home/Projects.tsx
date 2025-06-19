@@ -4,6 +4,7 @@ import React from 'react';
 import NextImageWithFallback from '@/app/components/main/NextImageWithFallback';
 
 import { GithubProject } from '@/common/types/types';
+import { getCleanProjectTitle } from '@/common/utils/utils';
 
 function ProjectCard({ project }: { project: GithubProject }) {
   return (
@@ -21,7 +22,9 @@ function ProjectCard({ project }: { project: GithubProject }) {
         <div className="bg-black-default/35 group-hover:bg-black-default/25 absolute bottom-0 left-0 h-full w-full transition-all duration-500" />
       </div>
       <section className="flex flex-col items-start justify-start gap-1">
-        <h3 className="text-sm font-light text-zinc-300">{project.name}</h3>
+        <h3 className="text-sm font-light text-zinc-300">
+          {getCleanProjectTitle(project.name)}
+        </h3>
         <p className="text-xs font-light text-zinc-400">
           {project.description}
         </p>
