@@ -17,7 +17,7 @@ function EntryBanner() {
     >
       <div className="relative min-h-[calc(100vh_-_50px)] w-full overflow-hidden">
         <PS3WaveBackground />
-        <div className="bg-black-default/50 absolute top-0 left-0 flex h-full w-full items-center justify-center">
+        <div className="absolute top-0 left-0 flex h-full w-full items-center justify-center">
           <motion.div
             initial={{
               opacity: 0,

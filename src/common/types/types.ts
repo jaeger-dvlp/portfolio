@@ -3,6 +3,7 @@ import { ImageProps } from 'next/image';
 interface GithubProject {
   id: number;
   name: string;
+  cleanName?: string;
   description: string;
   private: boolean;
   html_url: string;
