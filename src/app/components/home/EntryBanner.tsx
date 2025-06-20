@@ -18,28 +18,28 @@ function EntryBanner() {
       <div className="relative min-h-[calc(100vh_-_50px)] w-full overflow-hidden">
         <PS3WaveBackground />
         <div className="absolute top-0 left-0 flex h-full w-full items-center justify-center">
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 20,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              delay: 1,
-              duration: 1,
-            }}
-            className="max-w-app z-[1] flex h-full w-full flex-col items-start justify-center gap-2 p-3 text-shadow-lg/90 text-shadow-black"
-          >
-            <h1 className="-ml-0.5 text-left text-3xl font-extralight text-zinc-300 lg:text-5xl">
+          <div className="max-w-app z-[1] flex w-full flex-col items-start justify-center gap-2 p-3 text-shadow-lg/90 text-shadow-black">
+            <motion.h1
+              animate={{
+                opacity: [0, 1],
+                y: [30, 0],
+                transition: { delay: 1, duration: 1, ease: 'easeOut' },
+              }}
+              className="-ml-0.5 text-left text-3xl font-extralight text-zinc-300 lg:text-4xl"
+            >
               Ömer Kayalar
-            </h1>
-            <p className="text-md mb-14 text-left font-extralight text-zinc-400 lg:text-lg">
+            </motion.h1>
+            <motion.p
+              animate={{
+                opacity: [0, 1],
+                y: [30, 0],
+                transition: { delay: 1.3, duration: 1, ease: 'easeOut' },
+              }}
+              className="text-md mb-14 text-left font-extralight text-zinc-400 lg:text-lg"
+            >
               Gerçek dünya problemlerine yazılımla çözüm üretiyorum.
-            </p>
-          </motion.div>
+            </motion.p>
+          </div>
         </div>
       </div>
     </motion.div>
