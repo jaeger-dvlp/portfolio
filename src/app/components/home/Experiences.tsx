@@ -2,36 +2,29 @@ import React from 'react';
 import dayjs from 'dayjs';
 
 import { Experience } from '@/common/types/types';
+import SectionTitle from '@/app/components/main/SectionTitle';
 import { experience as userExperiences } from '@/common/data/user-data.json';
 
-function ExperienceCard({
-  experience,
-  isLast,
-}: {
-  experience: Experience;
-  isLast?: boolean;
-}) {
+function ExperienceCard({ experience }: { experience: Experience }) {
   return (
     <React.Fragment>
       <li className="relative inset-0 m-0 p-0">
         <section
-          className={`${!isLast && 'border-b'} bg-black-default relative z-[1] grid grid-cols-1 place-content-start place-items-start border-zinc-800 p-5 py-10 transition-all duration-150 hover:bg-zinc-900`}
+          className={`bg-black-default relative z-[1] grid grid-cols-1 place-content-start place-items-start border-b border-zinc-800 border-b-zinc-800 p-8 transition-all duration-150`}
         >
           {experience.company && (
-            <p className="text-sm font-light text-zinc-400">
-              {experience.company}
-            </p>
+            <p className="text-md text-zinc-500">{experience.company}</p>
           )}
           <h3 className="text-xl font-light text-zinc-300">
             {experience.position}
           </h3>
-          <p className="mb-4 text-sm font-light text-zinc-400">
+          <p className="mb-4 flex items-center text-sm text-zinc-500">
             <span>{dayjs(experience.startDate).format('YYYY/MM')}</span>
-            <span className="mx-2">→</span>
+            <span className="mx-2 h-px w-3 bg-zinc-700" />
             {experience.endDate ? (
               <span>{dayjs(experience.endDate).format('YYYY/MM')}</span>
             ) : (
-              <span>∞</span>
+              <span className="text-xl">∞</span>
             )}
           </p>
           {experience.descriptions &&
@@ -39,14 +32,13 @@ function ExperienceCard({
             experience.descriptions.map((description, index) => (
               <p
                 key={`${experience.id}-description-${index}`}
-                className="relative pl-3 text-xs font-light text-zinc-400/90"
+                className="relative pl-4 text-sm font-light text-zinc-400/90"
               >
-                <span className="absolute top-2 left-0 h-px w-1.5 bg-zinc-500/90" />
+                <span className="absolute top-2 left-0 h-px w-2 bg-zinc-700" />
                 {description}
               </p>
             ))}
         </section>
-        <span className="bg-black-default absolute top-0 left-0 z-[2] h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-none border border-zinc-800" />
       </li>
     </React.Fragment>
   );
@@ -64,22 +56,19 @@ function Experiences() {
         className="max-w-app flex h-full w-full flex-col items-start justify-start gap-10 p-3"
       >
         <section className="flex flex-col items-start justify-center gap-2 text-start">
-          <h2 className="text-2xl font-extralight text-zinc-200 lg:text-3xl">
-            Deneyim
-          </h2>
-          <p className="text-sm text-zinc-400">
-            Gerçek üretim ortamlarında edinilmiş teknik ve operasyonel
-            tecrübeler.
+          <SectionTitle>Experience</SectionTitle>
+          <p className="text-md text-zinc-500">
+            Technical and operational experience gained in real-world production
+            environments.
           </p>
         </section>
-        <ul className="grid w-full grid-cols-1 place-content-start place-items-stretch border border-zinc-800">
+        <ul className="grid w-full grid-cols-1 place-content-start place-items-stretch">
           {userExperiences
             .sort((a: Experience, b: Experience) => b.id - a.id)
             .map((experience: Experience, index: number) => (
               <ExperienceCard
                 experience={experience}
                 key={`user-experience-${index}`}
-                isLast={index === userExperiences.length - 1}
               />
             ))}
         </ul>

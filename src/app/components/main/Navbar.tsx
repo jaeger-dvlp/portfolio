@@ -12,19 +12,19 @@ const NavbarRoutes: Array<{
   target?: React.HTMLAttributeAnchorTarget | undefined;
 }> = [
   {
-    text: 'Hakkımda',
-    href: '/#about',
+    text: 'Summary',
+    href: '/#summary',
   },
   {
-    text: 'Deneyim',
+    text: 'Experience',
     href: '/#experience',
   },
   {
-    text: 'Projeler',
+    text: 'Projects',
     href: '/#projects',
   },
   {
-    text: 'İletişim',
+    text: 'Contact',
     href: '/#contact',
   },
 ];
@@ -32,6 +32,7 @@ const NavbarRoutes: Array<{
 function Navbar() {
   const pathname = useSearchParams();
   const [mobileMenu, setMobileMenu] = React.useState(false);
+  const [scrolledDown, setScrolledDown] = React.useState(false);
 
   React.useEffect(() => {
     if (mobileMenu) {
@@ -47,15 +48,31 @@ function Navbar() {
     setMobileMenu(false);
   }, [pathname]);
 
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        return setScrolledDown(true);
+      }
+
+      return setScrolledDown(false);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
       <motion.header
         key={'navbar'}
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 1, ease: 'easeInOut' }}
+        transition={{ delay: 1.2, duration: 2, ease: 'easeInOut' }}
         exit={{ opacity: 0, y: -50 }}
-        className="bg-black-default/75 sticky top-0 z-[98] flex w-full items-center justify-center border-b border-b-zinc-800 backdrop-blur-sm"
+        className={`${scrolledDown ? 'bg-black-default/75 border-b-zinc-800 backdrop-blur-sm' : 'border-b-transparent bg-transparent backdrop-blur-none'} sticky top-0 z-[98] flex w-full items-center justify-center border-b transition-all duration-750`}
       >
         <div className="max-w-app flex w-full items-center justify-between p-3">
           <Link href="/" className="logo font-extralight text-white">

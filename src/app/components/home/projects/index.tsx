@@ -2,6 +2,7 @@
 
 import React from 'react';
 import ProjectCard from './ProjectCard';
+import SectionTitle from '../../main/SectionTitle';
 
 import { GithubProject } from '@/common/types/types';
 import { filterProjects } from '@/common/utils/utils';
@@ -47,20 +48,18 @@ function Projects({
         className="max-w-app flex h-full w-full flex-col items-start justify-start gap-10 p-3"
       >
         <section className="flex flex-col items-start justify-center gap-2 text-start">
-          <h2 className="text-2xl font-extralight text-zinc-200 lg:text-3xl">
-            Projeler
-          </h2>
-          <p className="text-sm text-zinc-400">
-            Fonksiyonel, ölçeklenebilir ve sürdürülebilir yazılım uygulamaları.
+          <SectionTitle>Projects</SectionTitle>
+          <p className="text-md text-zinc-500">
+            Functional, scalable, and sustainable software applications.
           </p>
         </section>
         {projects.loading ? (
           <p className="col-span-full text-center text-sm font-light text-zinc-600">
-            Listelenebilir projeler yükleniyor...
+            Loading projects...
           </p>
         ) : projects.objects.length === 0 ? (
           <p className="col-span-full text-center text-sm font-light text-zinc-600">
-            Listelenebilir proje bulunamadı.
+            No projects found.
           </p>
         ) : (
           <section className="grid h-full w-full auto-rows-fr grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-3">
@@ -79,7 +78,7 @@ function Projects({
               href={`https://github.com/${userName}?tab=repositories`}
               className="bg-black-default cursor-pointer border border-zinc-800 px-6 py-2 text-sm font-light text-zinc-300 transition-all duration-150 hover:bg-zinc-900"
             >
-              Tümünü Gör
+              View all projects on GitHub
             </a>
           )}
         </section>
