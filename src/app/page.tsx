@@ -2,7 +2,7 @@ import React, { JSX } from 'react';
 
 import EntryBanner from './components/home/EntryBanner';
 import Projects from './components/home/projects';
-import Experiences from './components/home/Experiences';
+import Experiences from './components/home/experiences';
 import Summary from './components/home/Summary';
 import ApiHelper from '@/common/helpers/api.helper';
 import TechStack from './components/home/TechStack';
