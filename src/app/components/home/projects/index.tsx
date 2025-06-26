@@ -71,7 +71,7 @@ function Projects({
             ))}
           </section>
         )}
-        <section className="-mt-5 flex w-full items-start justify-start">
+        <section className="flex w-full items-start justify-start">
           {projects.objects.length > 0 && !projects.loading && (
             <a
               target="_blank"

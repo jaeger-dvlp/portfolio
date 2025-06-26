@@ -11,8 +11,24 @@ import Footer from '@/app/components/main/Footer';
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://omerkayalar.dev', // gerçek domaininle değiştir
+  },
   title: 'Ömer Kayalar | Software Developer',
-  description: 'Gerçek dünya problemlerine yazılımla çözüm üretiyorum.',
+  description: 'I build systems, not just code.',
+  openGraph: {
+    title: 'Ömer Kayalar | Software Developer',
+    description: 'I build systems, not just code.',
+    url: 'https://omerkayalar.dev', // gerçek domaininle değiştir
+    siteName: 'Ömer Kayalar Portfolio',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ömer Kayalar | Software Developer',
+    description: 'I build systems, not just code.',
+  },
 };
 
 export default function RootLayout({
