@@ -7,9 +7,7 @@
       "company": "Zaxe 3D Printing Technologies",
       "position": "Intern",
       "descriptions": [
-        "Assembled and wired 3D printers in the production workshop; supported mechanical integration of hardware units.",
-        "Independently developed a custom tool to automate part of the 3d printer production process - Reduced manual workload and improved production efficiency.",
-        "Recognized for initiative and technical contribution - transitioned to full-time software developer after internship."
+        "Supported hardware assembly and built a custom automation tool that improved production efficiency."
       ]
     },
     {
@@ -19,9 +17,7 @@
       "company": "Zaxe 3D Printing Technologies",
       "position": "Software Developer",
       "descriptions": [
-        "Led development of 3+ full-stack platforms for hardware control, e-commerce and admin tools.",
-        "Designed MVC-based backend services; took ownership of DevOps responsibilities including CI/CD pipelines and cloud deployment - Reduced release friction and increased delivery speed.",
-        "Refactored legacy code into modular structures - enhanced maintainability and scalability."
+        "Led full-stack platform development and handled DevOps; refactored legacy systems for scalability."
       ]
     },
     {
@@ -31,8 +27,7 @@
       "company": "Beyond",
       "position": "Front End Developer",
       "descriptions": [
-        "Delivered 3+ client-facing dashboards with reusable UI components and clean architecture.",
-        "Wrote reusable front-end components following clean architecture principles - Reduced future maintenance overhead by 50%."
+        "Delivered maintainable, modular dashboards using clean front-end architecture."
       ]
     },
     {
@@ -41,16 +36,17 @@
       "company": "Kayalar Alüminyum",
       "position": "Technical Manager",
       "descriptions": [
-        "Analyzed and digitized production workflows - reduced manual errors, improved visibility.",
-        "Built inventory and melting efficiency tracking systems - achieved 60% reporting accuracy gain.",
-        "Deployed automation in non-digital environments - improved productivity with minimal cost"
+        "Digitalized production processes and built automation tools to boost efficiency and reporting accuracy."
       ]
     },
     {
       "id": 4,
       "startDate": "2023-09-01",
       "company": "Individual",
-      "position": "Freelance Software Developer"
+      "position": "Freelance Software Developer",
+      "descriptions": [
+        "Delivered custom software solutions as a freelance developer."
+      ]
     }
   ]
 }

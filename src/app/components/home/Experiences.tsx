@@ -5,13 +5,25 @@ import { Experience } from '@/common/types/types';
 import SectionTitle from '@/app/components/main/SectionTitle';
 import { experience as userExperiences } from '@/common/data/user-data.json';
 
-function ExperienceCard({ experience }: { experience: Experience }) {
+function ExperienceCard({
+  experience,
+  isLast = false,
+}: {
+  experience: Experience;
+  isLast?: boolean;
+}) {
   return (
     <React.Fragment>
       <li className="relative inset-0 m-0 p-0">
         <section
-          className={`bg-black-default relative z-[1] grid grid-cols-1 place-content-start place-items-start border-b border-zinc-800 border-b-zinc-800 p-8 transition-all duration-150`}
+          className={`bg-black-default relative z-[1] grid grid-cols-1 place-content-start place-items-start px-5 pb-10 transition-all duration-150`}
         >
+          <span className="bg-black-default absolute top-0 left-0 z-[3] h-3 w-3 -translate-x-1/2 rounded-full border-2 border-zinc-700" />
+
+          <span
+            className={`${isLast ? 'bg-gradient-to-b from-zinc-700 to-transparent' : 'bg-zinc-700'} absolute top-0 left-0 z-[2] h-full w-px`}
+          />
+
           {experience.company && (
             <p className="text-md text-zinc-500">{experience.company}</p>
           )}
@@ -53,7 +65,7 @@ function Experiences() {
       <section
         data-aos="fade-in"
         data-aos-delay="200"
-        className="max-w-app flex h-full w-full flex-col items-start justify-start gap-10 p-3"
+        className="max-w-app flex h-full w-full flex-col items-start justify-start gap-5 p-3"
       >
         <section className="flex flex-col items-start justify-center gap-2 text-start">
           <SectionTitle>Experience</SectionTitle>
@@ -69,6 +81,7 @@ function Experiences() {
               <ExperienceCard
                 experience={experience}
                 key={`user-experience-${index}`}
+                isLast={index === userExperiences.length - 1}
               />
             ))}
         </ul>

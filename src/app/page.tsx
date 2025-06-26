@@ -5,6 +5,7 @@ import Projects from './components/home/projects';
 import Experiences from './components/home/Experiences';
 import Summary from './components/home/Summary';
 import ApiHelper from '@/common/helpers/api.helper';
+import TechStack from './components/home/TechStack';
 
 export default async function Home(): Promise<JSX.Element> {
   const userName: string = 'jaeger-dvlp';
@@ -16,8 +17,9 @@ export default async function Home(): Promise<JSX.Element> {
       <main className="grid h-full grid-cols-1 place-content-start place-items-center">
         <EntryBanner />
         <Summary />
-        <Experiences />
+        <TechStack />
         <Projects projects={projects} userName={userName} />
+        <Experiences />
       </main>
     </>
   );

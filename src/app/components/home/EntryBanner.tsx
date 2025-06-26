@@ -26,7 +26,7 @@ function EntryBanner() {
                   y: [30, 0],
                   transition: { delay: 1, duration: 1, ease: 'easeOut' },
                 }}
-                className="text-left text-4xl font-light whitespace-pre-wrap text-zinc-300"
+                className="text-left text-3xl font-light whitespace-pre-wrap text-zinc-300"
               >
                 I build systems, not just code.
               </motion.h1>

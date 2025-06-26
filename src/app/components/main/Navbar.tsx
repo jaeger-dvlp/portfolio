@@ -16,12 +16,12 @@ const NavbarRoutes: Array<{
     href: '/#summary',
   },
   {
-    text: 'Experience',
-    href: '/#experience',
-  },
-  {
     text: 'Projects',
     href: '/#projects',
+  },
+  {
+    text: 'Experience',
+    href: '/#experience',
   },
   {
     text: 'Contact',
@@ -70,7 +70,7 @@ function Navbar() {
         key={'navbar'}
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 2, ease: 'easeInOut' }}
+        transition={{ duration: 2, ease: 'easeInOut' }}
         exit={{ opacity: 0, y: -50 }}
         className={`${scrolledDown ? 'bg-black-default/75 border-b-zinc-800 backdrop-blur-sm' : 'border-b-transparent bg-transparent backdrop-blur-none'} sticky top-0 z-[98] flex w-full items-center justify-center border-b transition-all duration-750`}
       >
